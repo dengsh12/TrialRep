@@ -121,6 +121,6 @@ func main() {
 		log.Fatalf("Error creating pull request: %v", err)
 	}
 
-	fmt.Printf("Pull request created: %s\n", pr.GetHTMLURL())
+	fmt.Printf("Pull request created!: %s\n", pr.GetHTMLURL())
 
 }
