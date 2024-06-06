@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/transport/ssh"
 	"github.com/google/go-github/github"
@@ -95,6 +96,7 @@ func main() {
 	err = repo.Push(&git.PushOptions{
 		RemoteName: "origin",
 		Auth:       auth,
+		RefSpecs:   []config.RefSpec{config.RefSpec(newBranch + ":" + newBranch)},
 	})
 	if err != nil {
 		log.Fatalf("Error pushing new branch: %v", err)
