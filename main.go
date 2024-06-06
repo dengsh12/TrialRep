@@ -20,7 +20,7 @@ func main() {
 	accessToken := os.Args[1]
 	owner := "dengsh12"
 	repoName := "TrialRep"
-	sourceBranch := "mybranch"
+	sourceBranch := "mybranch1"
 	targetBranch := "main"
 	prTitle := "My Pull Request"
 	prBody := "This is a pull request created using Go."
