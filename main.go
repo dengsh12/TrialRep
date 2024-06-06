@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/transport/ssh"
 	"github.com/google/go-github/github"
@@ -20,7 +21,7 @@ func main() {
 	accessToken := os.Args[1]
 	owner := "dengsh12"
 	repoName := "TrialRep"
-	sourceBranch := "mybranch"
+	sourceBranch := "mybranch2"
 	targetBranch := "main"
 	prTitle := "My Pull Request"
 	prBody := "This is a pull request created using Go."
@@ -95,6 +96,7 @@ func main() {
 	err = repo.Push(&git.PushOptions{
 		RemoteName: "origin",
 		Auth:       auth,
+		RefSpecs:   []config.RefSpec{config.RefSpec(newBranch + ":" + newBranch)},
 	})
 	if err != nil {
 		log.Fatalf("Error pushing new branch: %v", err)
@@ -121,6 +123,6 @@ func main() {
 		log.Fatalf("Error creating pull request: %v", err)
 	}
 
-	fmt.Printf("Pull request created: %s\n", pr.GetHTMLURL())
+	fmt.Printf("Pull request created!: %s\n", pr.GetHTMLURL())
 
 }
