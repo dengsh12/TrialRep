@@ -122,4 +122,5 @@ func main() {
 	}
 
 	fmt.Printf("Pull request created: %s\n", pr.GetHTMLURL())
+
 }
