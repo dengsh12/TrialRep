@@ -20,7 +20,7 @@ func main() {
 	accessToken := os.Args[1]
 	owner := "dengsh12"
 	repoName := "TrialRep"
-	sourceBranch := "main"
+	sourceBranch := "mybranch"
 	targetBranch := "main"
 	prTitle := "My Pull Request"
 	prBody := "This is a pull request created using Go."
@@ -82,7 +82,7 @@ func main() {
 	newBranch := plumbing.NewBranchReferenceName(sourceBranch)
 	err = w.Checkout(&git.CheckoutOptions{
 		Branch: newBranch,
-		Create: false,
+		Create: true,
 	})
 	if err != nil {
 		log.Fatalf("Error creating new branch: %v", err)
