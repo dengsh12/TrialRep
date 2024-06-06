@@ -82,7 +82,7 @@ func main() {
 	newBranch := plumbing.NewBranchReferenceName(sourceBranch)
 	err = w.Checkout(&git.CheckoutOptions{
 		Branch: newBranch,
-		Create: true,
+		Create: false,
 	})
 	if err != nil {
 		log.Fatalf("Error creating new branch: %v", err)
